@@ -74,7 +74,7 @@ app.post('/create-checkout-session', async (req, res) => {
 				}
 			}),
 
-			success_url: `${CLIENT_URL}`,
+			success_url: `${CLIENT_URL}/successful-purchase`,
 			cancel_url: `${CLIENT_URL}`,
 		}
 
