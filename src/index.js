@@ -62,7 +62,6 @@ app.post('/create-checkout-session', async (req, res) => {
 						)
 						.replace('-webp', '.webp')
 
-				console.log(item)
 				return {
 					price_data: {
 						currency: 'usd',
