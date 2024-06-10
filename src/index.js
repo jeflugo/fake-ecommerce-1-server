@@ -37,9 +37,28 @@ app.post('/create-checkout-session', async (req, res) => {
 			],
 
 			line_items: cartItems.map(item => {
-				const newImage = item.img.asset._ref
-					.replace('image-', 'http://cdn.sanity.io/images/9254aur0/production/')
-					.replace('-jpg', '.jpg')
+				let newImage
+				if (item.img.asset._ref.includes('-jpg'))
+					newImage = item.img.asset._ref
+						.replace(
+							'image-',
+							'http://cdn.sanity.io/images/9254aur0/production/'
+						)
+						.replace('-jpg', '.jpg')
+				if (item.img.asset._ref.includes('-png'))
+					newImage = item.img.asset._ref
+						.replace(
+							'image-',
+							'http://cdn.sanity.io/images/9254aur0/production/'
+						)
+						.replace('-png', '.png')
+				if (item.img.asset._ref.includes('-webp'))
+					newImage = item.img.asset._ref
+						.replace(
+							'image-',
+							'http://cdn.sanity.io/images/9254aur0/production/'
+						)
+						.replace('-webp', '.webp')
 
 				console.log(item)
 				return {
