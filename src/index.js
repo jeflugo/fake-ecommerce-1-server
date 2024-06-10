@@ -22,6 +22,8 @@ app.use(
 
 app.use(morgan('tiny'))
 
+app.get('/', (req, res) => res.send('hi'))
+
 app.post('/create-checkout-session', async (req, res) => {
 	try {
 		const cartItems = req.body
